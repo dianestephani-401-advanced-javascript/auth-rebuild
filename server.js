@@ -4,14 +4,17 @@ const cors = require('cors');
 const authrouter = require('./auth/routes/authrouter');
 const notFoundHandler = require('./middleware/400');
 const errorHandler = require('./middleware/500');
+const apiRouter = require('./api/apiv1/api-router');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
+
 //make a 404 and 500 handler
 
+app.use('/api/v1', apiRouter);
 app.use(authrouter);
 app.get('/', (req, res) => {console.log('I am ALIIIIIIIIVE')} )
 app.use('*', notFoundHandler);
