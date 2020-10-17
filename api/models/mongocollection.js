@@ -24,3 +24,5 @@ class Model {
 }
 
 module.exports = Model;
+
+//write the methods for delete in collection
