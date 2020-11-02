@@ -7,6 +7,12 @@ const users = require('../models/users-model');
 router.post('/signup', handleSignUp);
 router.post('/signin', basicAuth, doTheSignIn);
 
+router.get('/oauth', oAuthHandler);
+
+async function oAuthHandler(){
+  
+}
+
 async function handleSignUp(req, res, next){
 try {
   let obj = {

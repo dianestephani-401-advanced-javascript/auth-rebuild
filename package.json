@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/dianestephani-401-advanced-javascript/auth-rebuild#readme",
   "dependencies": {
+    "axios": "^0.21.0",
     "base-64": "^0.1.0",
     "bcrypt": "^5.0.0",
     "cors": "^2.8.5",
