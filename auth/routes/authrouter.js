@@ -2,10 +2,25 @@
 const express = require('express');
 const router = express.Router();
 const basicAuth = require('../middleware/basic');
+const oauth = require('../middleware/oauth');
+
 const users = require('../models/users-model');
+// const axios = require('axios').default;
+require('dotenv').config();
 
 router.post('/signup', handleSignUp);
 router.post('/signin', basicAuth, doTheSignIn);
+
+router.get('/oauth', oAuthHandler);
+router.get('/oauth-callback', oauth, callbackHandler);
+
+async function oAuthHandler(req, res, next){
+  res.redirect(`https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}`);
+}
+
+async function callbackHandler(req, res, next){
+
+}
 
 async function handleSignUp(req, res, next){
 try {
